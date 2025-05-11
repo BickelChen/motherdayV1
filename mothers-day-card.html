@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>母親節快樂</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(to bottom, #ffe5e5, #ffcccc);
+      overflow: hidden;
+    }
+    .card {
+      position: relative;
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: #ff6f61;
+      animation: fadeIn 2s ease-in-out;
+    }
+    h1 {
+      font-size: 3rem;
+      margin: 0;
+    }
+    p {
+      font-size: 1.5rem;
+    }
+    .footer {
+      position: absolute;
+      bottom: 20px;
+      right: 20px;
+      font-size: 0.8rem;
+      color: #555;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    .flower {
+      position: absolute;
+      top: -10%;
+      animation: fall 5s linear infinite;
+    }
+    @keyframes fall {
+      0% { transform: translateY(-100px) rotate(0deg); }
+      100% { transform: translateY(110vh) rotate(360deg); }
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div>
+      <h1>母親節快樂！</h1>
+      <p>感謝媽媽的無私付出與愛 💖</p>
+    </div>
+    <audio id="bg-music" loop>
+      <source src="background-music.mp3" type="audio/mpeg">
+      您的瀏覽器不支援音樂播放。
+    </audio>
+    <div class="footer">輝哥AI創作2025/05/11</div>
+  </div>
+
+  <script>
+    // 自動播放背景音樂
+    window.onload = () => {
+      const bgMusic = document.getElementById('bg-music');
+      bgMusic.play();
+    };
+
+    // 動態生成花瓣
+    const createFlower = () => {
+      const flower = document.createElement('div');
+      flower.className = 'flower';
+      flower.style.left = Math.random() * 100 + 'vw';
+      flower.style.animationDuration = Math.random() * 3 + 2 + 's';
+      flower.innerHTML = '🌸';
+      document.body.appendChild(flower);
+      setTimeout(() => flower.remove(), 5000);
+    };
+    setInterval(createFlower, 500);
+  </script>
+</body>
+</html>
